@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joel Thomas — Full-Stack Developer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #7c3aed;
+      --dark: #0f172a;
+      --dark-2: #1e293b;
+      --text-muted: #94a3b8;
+      --surface: #f8fafc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #fff;
+      color: #1e293b;
+    }
+
+    /* ── Navbar ── */
+    .navbar {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 0.75rem 0;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff !important;
+      letter-spacing: -0.3px;
+    }
+    .nav-link {
+      color: #cbd5e1 !important;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #fff !important; }
+
+    /* ── Hero ── */
+    #hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #312e81 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(99,102,241,0.15) 0%, transparent 60%);
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(99,102,241,0.2);
+      border: 1px solid rgba(99,102,241,0.4);
+      color: #a5b4fc;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 99px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-name {
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 0.5rem;
+    }
+    .hero-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 400;
+      color: #93c5fd;
+      margin-bottom: 1.5rem;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: #94a3b8;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #cbd5e1;
+      font-size: 0.875rem;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+    .hero-links a:hover { color: #fff; }
+    .hero-links i { font-size: 1rem; }
+    .btn-hero-primary {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-hero-primary:hover { background: var(--primary-dark); color: #fff; transform: translateY(-1px); }
+    .btn-hero-ghost {
+      background: transparent;
+      color: #cbd5e1;
+      border: 1px solid rgba(203,213,225,0.3);
+      padding: 0.7rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-left: 0.75rem;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-hero-ghost:hover { border-color: #fff; color: #fff; transform: translateY(-1px); }
+    .hero-avatar {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+      margin: 0 auto;
+      box-shadow: 0 0 60px rgba(99,102,241,0.35);
+    }
+
+    /* ── Sections ── */
+    section { padding: 5rem 0; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.75rem;
+    }
+    .section-sub {
+      color: #64748b;
+      font-size: 1rem;
+      max-width: 560px;
+    }
+    .section-divider {
+      width: 48px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+      margin: 1rem 0 3rem;
+    }
+
+    /* ── About ── */
+    #about { background: var(--surface); }
+    .about-stat {
+      text-align: center;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .about-stat .number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .about-stat .label { font-size: 0.8rem; color: #64748b; margin-top: 0.25rem; }
+
+    /* ── Skills ── */
+    .skill-group { margin-bottom: 2rem; }
+    .skill-group-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+    }
+    .skill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 0.25rem;
+      border: 1.5px solid transparent;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .skill-badge:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .badge-blue   { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .badge-purple { background: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+    .badge-green  { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+    .badge-orange { background: #fff7ed; color: #c2410c; border-color: #fed7aa; }
+    .badge-teal   { background: #f0fdfa; color: #115e59; border-color: #99f6e4; }
+
+    /* ── Projects ── */
+    #projects { background: var(--surface); }
+    .project-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      height: 100%;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .project-card:hover {
+      box-shadow: 0 12px 40px rgba(37,99,235,0.12);
+      transform: translateY(-4px);
+    }
+    .project-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .project-title { font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 0.25rem; }
+    .project-subtitle { font-size: 0.8rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem; }
+    .project-desc { color: #475569; font-size: 0.875rem; line-height: 1.65; }
+    .project-tags { margin-top: 1.25rem; }
+    .project-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: #f1f5f9;
+      color: #475569;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin: 0.2rem 0.2rem 0 0;
+    }
+    .project-highlight {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: #475569;
+      margin-top: 0.5rem;
+    }
+    .project-highlight i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+
+    /* ── Education ── */
+    .edu-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .edu-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .edu-degree { font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 0.2rem; }
+    .edu-school { font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-bottom: 0.25rem; }
+    .edu-date { font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.75rem; }
+    .edu-bullet { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; color: #475569; margin-bottom: 0.35rem; }
+    .edu-bullet i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+
+    /* ── Contact ── */
+    #contact { background: var(--dark); }
+    #contact .section-title { color: #fff; }
+    #contact .section-sub { color: #94a3b8; }
+    #contact .section-label { color: #818cf8; }
+    #contact .section-divider { background: linear-gradient(90deg, #6366f1, #a78bfa); }
+    .contact-info-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-info-icon {
+      width: 44px; height: 44px;
+      background: rgba(99,102,241,0.15);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #818cf8; font-size: 1.1rem; flex-shrink: 0;
+    }
+    .contact-info-item a { color: #cbd5e1; text-decoration: none; font-size: 0.9rem; }
+    .contact-info-item a:hover { color: #fff; }
+    .contact-info-item span { color: #64748b; font-size: 0.75rem; display: block; }
+    .contact-form-wrapper {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .contact-form-wrapper .form-control {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #e2e8f0;
+      border-radius: 8px;
+    }
+    .contact-form-wrapper .form-control::placeholder { color: #64748b; }
+    .contact-form-wrapper .form-control:focus {
+      background: rgba(255,255,255,0.09);
+      border-color: #6366f1;
+      color: #e2e8f0;
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+    }
+    .contact-form-wrapper label { color: #94a3b8; font-size: 0.85rem; font-weight: 500; }
+    .btn-contact {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff; border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 8px; font-weight: 600; font-size: 0.9rem; width: 100%;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-contact:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); color: #fff; }
+    .btn-contact:disabled { opacity: 0.6; }
+
+    /* ── Footer ── */
+    footer {
+      background: #020617; padding: 2rem 0;
+      text-align: center; color: #475569; font-size: 0.85rem;
+    }
+    footer a { color: #64748b; text-decoration: none; }
+    footer a:hover { color: #94a3b8; }
+
+    .currently-learning {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; color: #64748b;
+      background: #f8fafc; border: 1px dashed #cbd5e1;
+      border-radius: 99px; padding: 0.3rem 0.85rem; margin: 0.25rem;
+    }
+    .currently-learning i { color: #f59e0b; }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">JT</a>
+      <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="hero-tag">Available for opportunities</div>
+          <h1 class="hero-name">Joel Thomas</h1>
+          <p class="hero-title">Full-Stack Web Developer</p>
+          <p class="hero-desc">
+            Final-year Informatics student who builds and ships complete applications end to end —
+            from feature-rich backends to reactive frontends and cloud-deployed containers.
+          </p>
+          <div class="hero-links mb-3">
+            <a href="mailto:8281o29196@gmail.com"><i class="bi bi-envelope-fill"></i> 8281o29196@gmail.com</a>
+            <a href="https://github.com/joelt006" target="_blank" rel="noopener"><i class="bi bi-github"></i> github.com/joelt006</a>
+            <a href="tel:+421907943418"><i class="bi bi-telephone-fill"></i> +421 907 943 418</a>
+            <a href="#"><i class="bi bi-geo-alt-fill"></i> Košice, Slovakia</a>
+          </div>
+          <a href="#projects" class="btn-hero-primary"><i class="bi bi-grid-3x3-gap-fill"></i> View Projects</a>
+          <a href="#contact" class="btn-hero-ghost"><i class="bi bi-send-fill"></i> Get in Touch</a>
+        </div>
+        <div class="col-lg-5 text-center d-none d-lg-block">
+          <div class="hero-avatar">👨‍💻</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">Who I am</div>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-divider"></div>
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7">
+          <p class="fs-6 text-secondary lh-lg mb-3">
+            I'm a final-year Informatics student at the Technical University of Košice with a passion
+            for building real, complete software. I've taken projects from empty repos to live, deployed
+            applications — a full-featured digital banking platform, a cloud-hosted containerized app on
+            Azure, and a shipped feature in an active open-source 3D visualization framework.
+          </p>
+          <p class="fs-6 text-secondary lh-lg mb-3">
+            I'm strong across the stack: Python/Django REST backends, Vue and React frontends,
+            relational databases, authentication, security, and containerized cloud deployments.
+            My bachelor thesis work spans immersive WebXR using Three.js, A-Frame, GLSL shaders, and
+            GPU instancing — rendering thousands of histogram bins at VR frame rates.
+          </p>
+          <p class="fs-6 text-secondary lh-lg">
+            Currently finishing my degree (expected June 2026) and eager to bring this hands-on
+            engineering experience to a professional development team.
+          </p>
+        </div>
+        <div class="col-lg-5">
+          <div class="row g-3">
+            <div class="col-6"><div class="about-stat"><div class="number">3+</div><div class="label">Full Projects Shipped</div></div></div>
+            <div class="col-6"><div class="about-stat"><div class="number">5+</div><div class="label">Languages & Frameworks</div></div></div>
+            <div class="col-6"><div class="about-stat"><div class="number">☁️</div><div class="label">Azure Cloud Deployed</div></div></div>
+            <div class="col-6"><div class="about-stat"><div class="number">VR</div><div class="label">WebXR / 3D Visualization</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label">What I work with</div>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-divider"></div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <div class="skill-group-title"><i class="bi bi-code-slash me-1"></i>Languages</div>
+            <span class="skill-badge badge-blue">Python</span>
+            <span class="skill-badge badge-blue">JavaScript</span>
+            <span class="skill-badge badge-blue">SQL</span>
+            <span class="skill-badge badge-blue">HTML</span>
+            <span class="skill-badge badge-blue">CSS</span>
+            <span class="skill-badge badge-blue">GLSL</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <div class="skill-group-title"><i class="bi bi-server me-1"></i>Back End</div>
+            <span class="skill-badge badge-green">Django</span>
+            <span class="skill-badge badge-green">Django REST Framework</span>
+            <span class="skill-badge badge-green">Flask</span>
+            <span class="skill-badge badge-green">RESTful APIs</span>
+            <span class="skill-badge badge-green">JWT / OTP Auth</span>
+            <span class="skill-badge badge-green">WebSockets</span>
+            <span class="skill-badge badge-green">PostgreSQL</span>
+            <span class="skill-badge badge-green">SQLite</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <div class="skill-group-title"><i class="bi bi-layout-text-window me-1"></i>Front End</div>
+            <span class="skill-badge badge-purple">Vue 3</span>
+            <span class="skill-badge badge-purple">Vuex</span>
+            <span class="skill-badge badge-purple">Vue Router</span>
+            <span class="skill-badge badge-purple">React</span>
+            <span class="skill-badge badge-purple">Three.js</span>
+            <span class="skill-badge badge-purple">A-Frame</span>
+            <span class="skill-badge badge-purple">WebXR</span>
+            <span class="skill-badge badge-purple">Axios</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <div class="skill-group-title"><i class="bi bi-cloud me-1"></i>Cloud &amp; DevOps</div>
+            <span class="skill-badge badge-orange">Docker</span>
+            <span class="skill-badge badge-orange">Azure ACI</span>
+            <span class="skill-badge badge-orange">Azure ACR</span>
+            <span class="skill-badge badge-orange">Azure Storage</span>
+            <span class="skill-badge badge-orange">Caddy</span>
+            <span class="skill-badge badge-orange">HTTPS / Let's Encrypt</span>
+            <span class="skill-badge badge-orange">Shell Scripting</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <div class="skill-group-title"><i class="bi bi-shield-check me-1"></i>Practices</div>
+            <span class="skill-badge badge-teal">Git &amp; GitHub</span>
+            <span class="skill-badge badge-teal">Secure Auth Design</span>
+            <span class="skill-badge badge-teal">Atomic DB Transactions</span>
+            <span class="skill-badge badge-teal">Technical Documentation</span>
+            <span class="skill-badge badge-teal">Debugging &amp; Testing</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-group">
+            <div class="skill-group-title"><i class="bi bi-book me-1"></i>Currently Learning</div>
+            <span class="currently-learning"><i class="bi bi-lightning-fill"></i>TypeScript</span>
+            <span class="currently-learning"><i class="bi bi-lightning-fill"></i>PHP</span>
+            <span class="currently-learning"><i class="bi bi-lightning-fill"></i>Node.js</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Projects ── -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label">What I've built</div>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-divider"></div>
+      <div class="row g-4">
+        <div class="col-lg-4 d-flex">
+          <div class="project-card">
+            <div class="project-icon" style="background:#eff6ff;">🏦</div>
+            <div class="project-title">MyBank</div>
+            <div class="project-subtitle">Full-Stack Digital Banking Platform</div>
+            <div class="project-desc">A complete banking application with accounts, transfers, loans, fixed deposits, card management, notifications, and a customer support system — with separate customer and admin portals.</div>
+            <div class="mt-3">
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> JWT + email OTP two-factor auth, CAPTCHA, bcrypt-hashed PINs, rate limiting</div>
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Atomic transfers via DB row locking — guaranteed balance integrity</div>
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Real-time notifications and live loan EMI / FD maturity calculators</div>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Django REST</span>
+              <span class="project-tag">Vue 3</span>
+              <span class="project-tag">Vuex</span>
+              <span class="project-tag">SimpleJWT</span>
+              <span class="project-tag">SQLite</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex">
+          <div class="project-card">
+            <div class="project-icon" style="background:#f0fdf4;">☁️</div>
+            <div class="project-title">CloudNotes</div>
+            <div class="project-subtitle">Cloud-Deployed Note-Taking App</div>
+            <div class="project-desc">A containerized web app deployed to Azure Container Instances, running three coordinated containers (reverse proxy, Flask API, PostgreSQL) in a single container group.</div>
+            <div class="mt-3">
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Idempotent shell scripts automate full Azure provisioning end to end</div>
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Automatic HTTPS via Caddy + Let's Encrypt with container auto-restart</div>
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Graceful DB connection retry on startup; persistent storage and backups</div>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">Azure ACI/ACR</span>
+              <span class="project-tag">Caddy</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex">
+          <div class="project-card">
+            <div class="project-icon" style="background:#f5f3ff;">🔬</div>
+            <div class="project-title">3D Error-Interval Visualization</div>
+            <div class="project-subtitle">Bachelor Thesis — NDMVR-Core</div>
+            <div class="project-desc">Designed and shipped a feature for an active immersive web framework that visualizes statistical uncertainty on 3D histograms — fully documented and integrated into the reactive architecture.</div>
+            <div class="mt-3">
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> GPU instanced geometry + GLSL shaders render thousands of bins per draw call at VR frame rates</div>
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Integrated into RxJS reactive architecture; browser-based particle-physics framework</div>
+              <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Research: "Recent Approaches to Data Visualisation in Virtual Reality"</div>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Three.js</span>
+              <span class="project-tag">A-Frame</span>
+              <span class="project-tag">WebXR</span>
+              <span class="project-tag">JSROOT</span>
+              <span class="project-tag">RxJS</span>
+              <span class="project-tag">GLSL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Education ── -->
+  <section id="education">
+    <div class="container">
+      <div class="section-label">Academic Background</div>
+      <h2 class="section-title">Education</h2>
+      <div class="section-divider"></div>
+      <div class="edu-card">
+        <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
+        <div>
+          <div class="edu-degree">B.Sc. in Informatics</div>
+          <div class="edu-school">Technical University of Košice, Slovakia</div>
+          <div class="edu-date"><i class="bi bi-calendar3 me-1"></i>Expected June 2026</div>
+          <div class="edu-bullet"><i class="bi bi-dot"></i>Coursework in software development, data structures, algorithms, and databases.</div>
+          <div class="edu-bullet"><i class="bi bi-dot"></i>Bachelor thesis: <em>"Recent Approaches to Data Visualisation in Virtual Reality"</em> — designed and implemented a 3D statistical-error visualization feature for an immersive, browser-based particle-physics framework.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Let's connect</div>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="section-divider"></div>
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <p class="text-secondary mb-4" style="font-size:0.95rem;line-height:1.7;">
+            I'm actively looking for opportunities where I can contribute to a real engineering team.
+            Whether it's a full-time role, internship, or an interesting project — reach out.
+          </p>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div><span>Email</span><a href="mailto:8281o29196@gmail.com">8281o29196@gmail.com</a></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><span>Phone</span><a href="tel:+421907943418">+421 907 943 418</a></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="bi bi-github"></i></div>
+            <div><span>GitHub</span><a href="https://github.com/joelt006" target="_blank" rel="noopener">github.com/joelt006</a></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><span>Location</span><a href="#">Košice, Slovakia</a></div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="contact-form-wrapper">
+            <form id="contactForm">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="form-label" for="contactName">Your Name</label>
+                  <input type="text" id="contactName" name="name" class="form-control" placeholder="Jane Smith" required maxlength="200">
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="contactEmail">Email Address</label>
+                  <input type="email" id="contactEmail" name="email" class="form-control" placeholder="jane@example.com" required maxlength="200">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="contactMessage">Message</label>
+                  <textarea id="contactMessage" name="message" class="form-control" rows="5" placeholder="Tell me about the role or project…" required maxlength="5000"></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-contact" id="contactBtn">
+                    <span id="contactBtnText"><i class="bi bi-send-fill me-2"></i>Send Message</span>
+                  </button>
+                  <div id="contactStatus" class="mt-2 text-center" style="font-size:0.875rem;"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container">
+      <p class="mb-1">Hosted on Azure Static Web Apps</p>
+      <p class="mb-0">© 2026 Joel Thomas · <a href="https://github.com/joelt006" target="_blank" rel="noopener">github.com/joelt006</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ── Replace YOUR_FORM_ID with your actual Formspree form ID ──
+    const FORMSPREE_ID = 'xlgvvnpp';
+
+    document.getElementById('contactForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = document.getElementById('contactBtn');
+      const status = document.getElementById('contactStatus');
+      const btnText = document.getElementById('contactBtnText');
+
+      btn.disabled = true;
+      btnText.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending…';
+      status.textContent = '';
+
+      try {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name:    document.getElementById('contactName').value,
+            email:   document.getElementById('contactEmail').value,
+            message: document.getElementById('contactMessage').value,
+          }),
+        });
+
+        const data = await res.json();
+        if (!res.ok || data.errors) throw new Error('Form error');
+
+        status.innerHTML = '<span style="color:#4ade80;"><i class="bi bi-check-circle-fill me-1"></i>Message sent! I\'ll get back to you soon.</span>';
+        document.getElementById('contactForm').reset();
+      } catch {
+        status.innerHTML = '<span style="color:#f87171;"><i class="bi bi-exclamation-circle-fill me-1"></i>Failed to send. Please email me directly.</span>';
+      } finally {
+        btn.disabled = false;
+        btnText.innerHTML = '<i class="bi bi-send-fill me-2"></i>Send Message';
+      }
+    });
+  </script>
+</body>
+</html>
