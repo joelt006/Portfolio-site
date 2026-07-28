@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joel Thomas — Full Stack Developer</title>
-  <meta name="description" content="Joel Thomas — Full-stack web developer. Python / Django REST back ends, Vue and React front ends, containerized cloud deployment on Azure.">
+  <title>Joel Thomas — Full Stack Developer · Python, React, AI</title>
+  <meta name="description" content="Joel Thomas — Full-stack developer. Python / Django REST back ends, Vue 3 and React front ends, RAG / LLM applications, and containerized cloud deployment on Azure.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -405,6 +405,8 @@
     .icon-orange { background: rgba(251,146,60,0.14);  color: #fdba74; }
     .icon-teal   { background: rgba(45,212,191,0.13);  color: #5eead4; }
     .icon-amber  { background: rgba(251,191,36,0.14);  color: #fcd34d; }
+    .icon-pink   { background: rgba(244,114,182,0.14); color: #f9a8d4; }
+    .icon-rose   { background: rgba(248,113,113,0.14); color: #fca5a5; }
     .skill-badge {
       display: inline-block;
       padding: 0.34rem 0.8rem;
@@ -479,7 +481,7 @@
       font-weight: 500;
       margin: 0.2rem 0.25rem 0 0;
     }
-    .thesis-ribbon {
+    .card-ribbon {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
@@ -495,6 +497,18 @@
       margin-left: auto;
       flex-shrink: 0;
     }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #a5b4fc;
+      text-decoration: none;
+      margin-top: 0.9rem;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .project-link:hover { color: #fff; gap: 0.6rem; }
 
     /* ── Education ── */
     .edu-card {
@@ -642,15 +656,15 @@
     <div class="container position-relative">
       <div class="row align-items-center g-5">
         <div class="col-lg-7">
-          <div class="hero-tag"><span class="pulse-dot"></span>Available for opportunities</div>
+          <div class="hero-tag"><span class="pulse-dot"></span>Available immediately</div>
           <h1 class="hero-name">Hi, I'm <span class="text-gradient">Joel Thomas</span></h1>
-          <p class="hero-title"><span class="text-gradient" id="typedRole">Full Stack Developer</span><span class="typed-caret"></span></p>
+          <p class="hero-title"><span class="text-gradient" id="typedRole">Full Stack Developer — Python, React, AI</span><span class="typed-caret"></span></p>
           <p class="hero-desc">
-            Final-year Informatics student who has built and deployed complete applications end to
-            end — from a feature-rich digital banking platform to a cloud-hosted app on Azure, plus
-            a shipped feature in an active 3D visualization framework. Strong across the stack:
-            Python / Django REST back ends, Vue and React front ends, relational databases,
-            authentication and security, and containerized cloud deployment.
+            Informatics graduate and full-stack developer who builds and ships complete applications
+            end to end — a full digital banking platform with a Django REST back end, a Vue 3 front
+            end, and an on-device machine-learning assistant, plus a published retrieval-augmented
+            generation (RAG) AI application. Strong in Python, Vue and React, REST API design, SQL,
+            Git, Docker and cloud deployment, with a focus on security and clean, maintainable code.
           </p>
           <div class="hero-links mb-4">
             <a href="mailto:8281o29196@gmail.com"><i class="bi bi-envelope-fill"></i> 8281o29196@gmail.com</a>
@@ -675,8 +689,10 @@
               <div>&nbsp;&nbsp;<span class="c-key">"role"</span><span class="c-punc">:</span> <span class="c-str">"Full Stack Developer"</span><span class="c-punc">,</span></div>
               <div>&nbsp;&nbsp;<span class="c-key">"backend"</span><span class="c-punc">:</span> <span class="c-punc">[</span><span class="c-str">"Django"</span><span class="c-punc">,</span> <span class="c-str">"Flask"</span><span class="c-punc">],</span></div>
               <div>&nbsp;&nbsp;<span class="c-key">"frontend"</span><span class="c-punc">:</span> <span class="c-punc">[</span><span class="c-str">"Vue 3"</span><span class="c-punc">,</span> <span class="c-str">"React"</span><span class="c-punc">],</span></div>
+              <div>&nbsp;&nbsp;<span class="c-key">"ai"</span><span class="c-punc">:</span> <span class="c-punc">[</span><span class="c-str">"RAG"</span><span class="c-punc">,</span> <span class="c-str">"LangChain"</span><span class="c-punc">,</span> <span class="c-str">"scikit-learn"</span><span class="c-punc">],</span></div>
               <div>&nbsp;&nbsp;<span class="c-key">"cloud"</span><span class="c-punc">:</span> <span class="c-punc">[</span><span class="c-str">"Docker"</span><span class="c-punc">,</span> <span class="c-str">"Azure"</span><span class="c-punc">],</span></div>
               <div>&nbsp;&nbsp;<span class="c-key">"ships_complete_apps"</span><span class="c-punc">:</span> <span class="c-var">True</span><span class="c-punc">,</span></div>
+              <div>&nbsp;&nbsp;<span class="c-key">"available"</span><span class="c-punc">:</span> <span class="c-str">"immediately"</span><span class="c-punc">,</span></div>
               <div><span class="c-punc">}</span> <span class="cursor"></span></div>
             </div>
           </div>
@@ -696,29 +712,31 @@
       <div class="row g-5 align-items-start">
         <div class="col-lg-7 about-text reveal">
           <p class="mb-3">
-            I'm a final-year Informatics student at the <strong>Technical University of Košice</strong>
-            with a passion for building real, complete software. I've taken projects from empty repos
-            to live, deployed applications — a <strong>full-featured digital banking platform</strong>,
-            a <strong>cloud-hosted containerized app on Azure</strong>, and a <strong>shipped feature in
-            an active 3D visualization framework</strong> as part of my bachelor thesis.
+            I'm an Informatics graduate of the <strong>Technical University of Košice</strong> —
+            bachelor thesis defended and graded <strong>85%</strong> — with a passion for building
+            real, complete software. I've taken projects from empty repos to shipped applications:
+            a <strong>full digital banking platform</strong> with an on-device machine-learning
+            assistant, a <strong>published RAG AI application</strong>, and a
+            <strong>containerized app deployed to Microsoft Azure</strong>.
           </p>
           <p class="mb-3">
-            I'm strong across the stack: Python / Django REST back ends, Vue and React front ends,
-            relational databases, authentication and security, and containerized cloud deployment.
-            My thesis work spans immersive WebXR using Three.js, A-Frame, GLSL shaders, and GPU
-            instancing — rendering thousands of histogram bins at VR frame rates.
+            I'm strong across the stack: Python / Django REST back ends, Vue 3 and React front ends,
+            REST API design, SQL and relational schema design, Git, Docker and cloud deployment. I
+            care a lot about security — JWT and OTP auth, PBKDF2/HMAC hashing, rate limiting, and
+            sound authorization design — and about clean, documented, maintainable code.
           </p>
           <p class="mb-0">
-            I recently completed my degree in June 2026 and am eager to bring this hands-on
-            engineering experience to a professional development team.
+            I have <strong>full labour-market access in Slovakia under Section 23a</strong> (no work
+            permit required) and I'm <strong>available immediately</strong> — eager to bring this
+            hands-on engineering experience to a professional development team.
           </p>
         </div>
         <div class="col-lg-5 reveal">
           <div class="row g-3">
-            <div class="col-6"><div class="about-stat"><div class="number text-gradient" data-count="3" data-suffix="+">0+</div><div class="label">Complete Apps Built &amp; Deployed</div></div></div>
-            <div class="col-6"><div class="about-stat"><div class="number text-gradient" data-count="5" data-suffix="+">0+</div><div class="label">Languages &amp; Frameworks</div></div></div>
-            <div class="col-6"><div class="about-stat"><div class="number text-gradient">☁️</div><div class="label">Azure Cloud Deployed</div></div></div>
-            <div class="col-6"><div class="about-stat"><div class="number text-gradient">VR</div><div class="label">WebXR / 3D Visualization</div></div></div>
+            <div class="col-6"><div class="about-stat"><div class="number text-gradient" data-count="3" data-suffix="+">0+</div><div class="label">Complete Apps Built &amp; Shipped</div></div></div>
+            <div class="col-6"><div class="about-stat"><div class="number text-gradient" data-count="85" data-suffix="%">0%</div><div class="label">Bachelor Thesis Grade</div></div></div>
+            <div class="col-6"><div class="about-stat"><div class="number text-gradient">93.4%</div><div class="label">Local AI Assistant Accuracy</div></div></div>
+            <div class="col-6"><div class="about-stat"><div class="number text-gradient">C1</div><div class="label">English (Advanced)</div></div></div>
           </div>
         </div>
       </div>
@@ -742,65 +760,86 @@
             <span class="skill-badge">SQL</span>
             <span class="skill-badge">HTML</span>
             <span class="skill-badge">CSS</span>
-            <span class="skill-badge">GLSL (shaders)</span>
+            <span class="skill-badge badge-learning"><i class="bi bi-lightning-fill"></i>TypeScript</span>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 reveal">
           <div class="skill-card spot">
-            <div class="skill-card-title"><div class="icon-box icon-green"><i class="bi bi-server"></i></div>Back End</div>
-            <span class="skill-badge">Django</span>
-            <span class="skill-badge">Django REST Framework</span>
-            <span class="skill-badge">Flask</span>
-            <span class="skill-badge">RESTful APIs</span>
-            <span class="skill-badge">JWT / OTP Auth</span>
-            <span class="skill-badge">WebSockets</span>
-            <span class="skill-badge">PostgreSQL</span>
-            <span class="skill-badge">SQLite</span>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 reveal">
-          <div class="skill-card spot">
-            <div class="skill-card-title"><div class="icon-box icon-purple"><i class="bi bi-layout-text-window"></i></div>Front End</div>
+            <div class="skill-card-title"><div class="icon-box icon-purple"><i class="bi bi-layout-text-window"></i></div>Frontend</div>
             <span class="skill-badge">Vue 3</span>
             <span class="skill-badge">Vuex</span>
             <span class="skill-badge">Vue Router</span>
             <span class="skill-badge">React</span>
-            <span class="skill-badge">Three.js</span>
-            <span class="skill-badge">A-Frame</span>
-            <span class="skill-badge">WebXR</span>
-            <span class="skill-badge">Axios</span>
-            <span class="skill-badge">Responsive CSS</span>
+            <span class="skill-badge">Single-Page Applications</span>
+            <span class="skill-badge">REST / JSON Integration</span>
+            <span class="skill-badge">Responsive Design</span>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 reveal">
           <div class="skill-card spot">
-            <div class="skill-card-title"><div class="icon-box icon-orange"><i class="bi bi-cloud"></i></div>Cloud &amp; DevOps</div>
+            <div class="skill-card-title"><div class="icon-box icon-green"><i class="bi bi-server"></i></div>Backend</div>
+            <span class="skill-badge">Django</span>
+            <span class="skill-badge">Django REST Framework</span>
+            <span class="skill-badge">Flask</span>
+            <span class="skill-badge">REST API Design</span>
+            <span class="skill-badge">JWT / OTP Auth</span>
+            <span class="skill-badge">Object-Oriented Design</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="skill-card spot">
+            <div class="skill-card-title"><div class="icon-box icon-pink"><i class="bi bi-cpu"></i></div>AI &amp; Machine Learning</div>
+            <span class="skill-badge">LLM Applications</span>
+            <span class="skill-badge">RAG</span>
+            <span class="skill-badge">Embeddings</span>
+            <span class="skill-badge">Vector Databases</span>
+            <span class="skill-badge">LangChain</span>
+            <span class="skill-badge">scikit-learn</span>
+            <span class="skill-badge">TF-IDF</span>
+            <span class="skill-badge">Logistic Regression</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="skill-card spot">
+            <div class="skill-card-title"><div class="icon-box icon-teal"><i class="bi bi-database"></i></div>Databases</div>
+            <span class="skill-badge">PostgreSQL</span>
+            <span class="skill-badge">SQLite</span>
+            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">Relational Schema Design</span>
+            <span class="skill-badge">Atomic Transactions</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="skill-card spot">
+            <div class="skill-card-title"><div class="icon-box icon-orange"><i class="bi bi-cloud"></i></div>DevOps &amp; Cloud</div>
             <span class="skill-badge">Docker</span>
-            <span class="skill-badge">Azure ACI</span>
-            <span class="skill-badge">Azure ACR</span>
-            <span class="skill-badge">Azure Storage</span>
-            <span class="skill-badge">Caddy Reverse Proxy</span>
-            <span class="skill-badge">HTTPS / Let's Encrypt</span>
-            <span class="skill-badge">Shell Scripting</span>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 reveal">
-          <div class="skill-card spot">
-            <div class="skill-card-title"><div class="icon-box icon-teal"><i class="bi bi-shield-check"></i></div>Practices</div>
+            <span class="skill-badge">Microsoft Azure</span>
             <span class="skill-badge">Git &amp; GitHub</span>
-            <span class="skill-badge">Secure Auth Design</span>
-            <span class="skill-badge">Atomic DB Transactions</span>
-            <span class="skill-badge">Technical Documentation</span>
-            <span class="skill-badge">Debugging</span>
-            <span class="skill-badge">Testing</span>
+            <span class="skill-badge">Linux</span>
+            <span class="skill-badge">Build &amp; Deploy Automation</span>
+            <span class="skill-badge">CI/CD Principles</span>
           </div>
         </div>
         <div class="col-md-6 col-lg-4 reveal">
           <div class="skill-card spot">
-            <div class="skill-card-title"><div class="icon-box icon-amber"><i class="bi bi-book"></i></div>Currently Learning</div>
-            <span class="skill-badge badge-learning"><i class="bi bi-lightning-fill"></i>TypeScript</span>
-            <span class="skill-badge badge-learning"><i class="bi bi-lightning-fill"></i>Angular</span>
-            <span class="skill-badge badge-learning"><i class="bi bi-lightning-fill"></i>Node.js</span>
+            <div class="skill-card-title"><div class="icon-box icon-rose"><i class="bi bi-shield-lock"></i></div>Security</div>
+            <span class="skill-badge">JWT Auth</span>
+            <span class="skill-badge">OTP</span>
+            <span class="skill-badge">PBKDF2 / HMAC Hashing</span>
+            <span class="skill-badge">Rate Limiting</span>
+            <span class="skill-badge">Session Management</span>
+            <span class="skill-badge">Authorization Design</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="skill-card spot">
+            <div class="skill-card-title"><div class="icon-box icon-amber"><i class="bi bi-check2-square"></i></div>Practices</div>
+            <span class="skill-badge">Automated Testing</span>
+            <span class="skill-badge">Clean Code</span>
+            <span class="skill-badge">Technical Documentation</span>
+            <span class="skill-badge">Agile Collaboration</span>
+            <span class="skill-badge">AI-Assisted Development</span>
+            <span class="skill-badge">English C1 (Advanced)</span>
           </div>
         </div>
       </div>
@@ -824,22 +863,52 @@
                 <div class="project-icon">🏦</div>
                 <div>
                   <div class="project-title">MyBank</div>
-                  <div class="project-subtitle">Full-Stack Digital Banking Platform</div>
+                  <div class="project-subtitle">Full-Stack Banking Platform with Local AI Assistant</div>
                 </div>
               </div>
-              <div class="project-desc">A complete banking application covering accounts, money transfers, loans, fixed deposits, card management, notifications, and a customer support system — with separate customer and admin portals.</div>
+              <div class="project-desc">A complete digital banking platform built end to end: accounts, money transfers, beneficiaries, scheduled transfers, loans (with live EMI and repayment tracking), fixed deposits, card management, notifications, customer support, and a full admin portal.</div>
               <div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Layered security: JWT auth, email OTP two-factor login, CAPTCHA, bcrypt-hashed PINs, rate limiting, and active-session management</div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Atomic money transfers using database row locking (select_for_update) to guarantee balance integrity — plus scheduled transfers, beneficiaries, and CSV statement export</div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Real-time notification system and live financial calculators (loan EMI, FD maturity) for an interactive front-end experience</div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Built <strong>Heva</strong>, an on-device ML assistant (scikit-learn TF-IDF + Logistic Regression) classifying banking requests across 17 intents at 93.4% cross-validated accuracy — runs locally with no LLM and no external API, so no customer data leaves the system</div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Engineered strong security: JWT auth with email OTP, PBKDF2-hashed transaction PINs, CVVs derived on demand via HMAC (never stored), OCR/KYC identity checks, rate limiting, session management, and a read-only, confirmation-gated authorization model for the assistant</div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Designed the REST/JSON API and data model (15+ entities), enforced atomic transfers with row-level locking, and documented endpoints, models, and the assistant security contract</div>
               </div>
               <div class="project-tags">
                 <span class="project-tag">Django REST</span>
                 <span class="project-tag">Vue 3</span>
-                <span class="project-tag">Vuex</span>
-                <span class="project-tag">SimpleJWT</span>
-                <span class="project-tag">SQLite</span>
+                <span class="project-tag">SQL</span>
+                <span class="project-tag">JWT/OTP</span>
+                <span class="project-tag">scikit-learn</span>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex reveal">
+          <div class="project-card tilt spot">
+            <div class="project-top"></div>
+            <div class="project-body">
+              <div class="project-head">
+                <div class="project-icon">🤖</div>
+                <div>
+                  <div class="project-title">Document Q&amp;A Assistant</div>
+                  <div class="project-subtitle">AI Application (RAG)</div>
+                </div>
+                <div class="card-ribbon"><i class="bi bi-box-arrow-up-right"></i>Published</div>
+              </div>
+              <div class="project-desc">A published AI application that answers natural-language questions grounded in a document's content, showing the source passages behind every answer to prevent hallucination.</div>
+              <div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Implemented the full RAG pipeline: chunking, embeddings, vector store, retrieval, and LLM answering</div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Backend switchable between a cloud model (OpenAI) and a local model (Ollama) — no data has to leave the machine</div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Source passages surfaced alongside each answer so responses stay verifiable and grounded</div>
+              </div>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">LangChain</span>
+                <span class="project-tag">Chroma</span>
+                <span class="project-tag">OpenAI</span>
+                <span class="project-tag">Ollama</span>
+                <span class="project-tag">Streamlit</span>
+              </div>
+              <a class="project-link" href="https://github.com/joelt006/rag-qa-assistant" target="_blank" rel="noopener"><i class="bi bi-github"></i>View on GitHub<i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -851,50 +920,21 @@
                 <div class="project-icon">☁️</div>
                 <div>
                   <div class="project-title">CloudNotes</div>
-                  <div class="project-subtitle">Cloud-Deployed Note-Taking App</div>
+                  <div class="project-subtitle">Containerized Cloud Application</div>
                 </div>
               </div>
-              <div class="project-desc">A containerized web app deployed to Azure Container Instances, running three coordinated containers (reverse proxy, Flask API, PostgreSQL) in a single container group.</div>
+              <div class="project-desc">A multi-container Flask and PostgreSQL application deployed to Microsoft Azure with Docker and automated provisioning scripts.</div>
               <div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Automated the full deployment with idempotent shell scripts that provision Azure resources, build and push Docker images, and configure persistent storage and backups</div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Automatic HTTPS via Caddy and Let's Encrypt, with container auto-restart</div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Graceful database-connection retry on startup for reliable cold boots</div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Multi-container deployment (reverse proxy, Flask API, PostgreSQL) coordinated as a single group on Azure</div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Automated provisioning scripts that build and push Docker images and configure persistent storage</div>
+                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Automatic HTTPS, container auto-restart, and graceful database-connection retry for reliable cold boots</div>
               </div>
               <div class="project-tags">
+                <span class="project-tag">Python</span>
                 <span class="project-tag">Flask</span>
                 <span class="project-tag">PostgreSQL</span>
                 <span class="project-tag">Docker</span>
-                <span class="project-tag">Azure ACI/ACR</span>
-                <span class="project-tag">Caddy</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 d-flex reveal">
-          <div class="project-card tilt spot">
-            <div class="project-top"></div>
-            <div class="project-body">
-              <div class="project-head">
-                <div class="project-icon">🔬</div>
-                <div>
-                  <div class="project-title">3D Error-Interval Visualization</div>
-                  <div class="project-subtitle">NDMVR-Core</div>
-                </div>
-                <div class="thesis-ribbon"><i class="bi bi-mortarboard-fill"></i>Thesis</div>
-              </div>
-              <div class="project-desc">Designed and shipped a feature for an active immersive web framework that visualizes statistical uncertainty on 3D histograms — fully documented and integrated into its reactive architecture.</div>
-              <div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Instanced GPU geometry and custom GLSL shaders render thousands of bins per draw call at VR frame rates</div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Integrated with the framework's reactive (RxJS) architecture in a browser-based particle-physics environment</div>
-                <div class="project-highlight"><i class="bi bi-check-circle-fill"></i> Research: "Recent Approaches to Data Visualisation in Virtual Reality"</div>
-              </div>
-              <div class="project-tags">
-                <span class="project-tag">Three.js</span>
-                <span class="project-tag">A-Frame</span>
-                <span class="project-tag">WebXR</span>
-                <span class="project-tag">JSROOT</span>
-                <span class="project-tag">RxJS</span>
-                <span class="project-tag">GLSL</span>
+                <span class="project-tag">Microsoft Azure</span>
               </div>
             </div>
           </div>
@@ -914,11 +954,16 @@
       <div class="edu-card reveal">
         <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div>
         <div>
-          <div class="edu-degree">B.Sc. in Informatics</div>
+          <div class="edu-degree">Bachelor of Science in Informatics</div>
           <div class="edu-school">Technical University of Košice, Slovakia</div>
-          <div class="edu-date"><i class="bi bi-calendar3"></i>June 2026</div>
-          <div class="edu-bullet"><i class="bi bi-caret-right-fill"></i>Final-year informatics student; coursework in software development, data structures, algorithms, and databases.</div>
-          <div class="edu-bullet"><i class="bi bi-caret-right-fill"></i>Bachelor thesis: <em>"Recent Approaches to Data Visualisation in Virtual Reality"</em> — designed and implemented a 3D statistical-error visualization feature for an immersive, browser-based particle-physics framework.</div>
+          <div class="edu-date"><i class="bi bi-calendar3"></i>2026</div>
+          <div class="edu-bullet"><i class="bi bi-caret-right-fill"></i>Thesis defended, graded <strong>85%</strong>.</div>
+          <div class="edu-bullet"><i class="bi bi-caret-right-fill"></i>Shipped a feature into an active research codebase (Three.js, WebXR), with full developer documentation.</div>
+          <div class="project-tags pt-2">
+            <span class="project-tag">Three.js</span>
+            <span class="project-tag">WebXR</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
         </div>
       </div>
     </div>
@@ -936,7 +981,9 @@
         <div class="col-lg-5 reveal">
           <p class="mb-4" style="font-size:0.95rem;line-height:1.8;color:var(--text-dim);">
             I'm actively looking for opportunities where I can contribute to a real engineering team.
-            Whether it's a full-time role, internship, or an interesting project — reach out.
+            I have full labour-market access in Slovakia under Section 23a — no work permit required —
+            and I'm available immediately. Whether it's a full-time role, contract, or an interesting
+            project, reach out.
           </p>
           <div class="contact-info-item">
             <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
@@ -950,6 +997,7 @@
             <div class="contact-info-icon"><i class="bi bi-github"></i></div>
             <div><span>GitHub</span><a href="https://github.com/joelt006" target="_blank" rel="noopener">github.com/joelt006</a></div>
           </div>
+          
           <div class="contact-info-item">
             <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
             <div><span>Location</span><a href="#contact">Košice, Slovakia</a></div>
@@ -1012,9 +1060,10 @@
 
     // ── Typing animation (hero role) ──
     const roles = [
-      'Full Stack Developer',
-      'Python / Django Developer',
-      'Vue & React Front Ends',
+      'Full Stack Developer — Python, React, AI',
+      'Python / Django REST Developer',
+      'Vue 3 & React Front Ends',
+      'RAG & LLM Applications',
       'Docker & Azure Deployments',
     ];
     const typedEl = document.getElementById('typedRole');
